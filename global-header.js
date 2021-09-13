@@ -2,7 +2,8 @@ var DEV_TEST = false;
 var LEAD_ENDPOINT = DEV_TEST
   ? "https://dev1.mksp.co/api/inbound-lead/v2"
   : "https://makespace.com/api/inbound-lead/v2";
- 
+
+var INSTAPAGE_COMMON = "https://s3.amazonaws.com/customer-web-dev1.mksp.co/static/js/common.js";
 
 window.makespaceFormatFormData = function (formData) {
   var leadData = Object.keys(formData).reduce(function(arr, key) {
@@ -16,7 +17,7 @@ window.makespaceFormatFormData = function (formData) {
   return { lead_data: leadData, phone_number: formData.phone_number };
 }
 
-window.makespacePostLeadSubmitRedirect() = function () {
+window.makespacePostLeadSubmitRedirect = function () {
     // no need to redirect.
   var zip = params.zip_code;
   var urlLookup = {
@@ -38,4 +39,9 @@ window.makespacePostLeadSubmitRedirect() = function () {
     window.location.href = redirectUrl;
   }
 }
+
+// "import" common.js
+var script = document.createElement('script');
+script.src=INSTAPAGE_COMMON;
+document.head.appendChild(script);
 

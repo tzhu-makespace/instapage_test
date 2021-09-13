@@ -16,6 +16,7 @@ LEAD_CUSTOM_FIELDS = {
   loss_reason: "custom.cf_Am1J7983j8FHA2PJCw1T2LzoB8WvMUQi6Q6wqS3tQcb",
 };
 
+var INSTAPAGE_COMMON = "https://s3.amazonaws.com/customer-web-dev1.mksp.co/static/js/common.js";
 
 // custom functions used by common.js
 window.makespaceFormatFormData = function (formData) {
@@ -31,13 +32,13 @@ window.makespaceFormatFormData = function (formData) {
   return leadData;
 };
 
-window.makespacePostLeadSubmitRedirect() = function () {
+window.makespacePostLeadSubmitRedirect = function () {
   // no need to redirect.
 };
 
 
 // "import" common.js
 var script = document.createElement('script');
-script.src='//tzhu-makespace.github.io/instapage_test/common.js';
+script.src=INSTAPAGE_COMMON;
 document.head.appendChild(script);
 
